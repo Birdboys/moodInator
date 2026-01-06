@@ -1,0 +1,115 @@
+[gd_scene load_steps=8 format=3 uid="uid://nppr4tab8x8f"]
+
+[ext_resource type="Theme" uid="uid://bjfqe17b7byng" path="res://assets/mood_theme.tres" id="1_dktp6"]
+[ext_resource type="Texture2D" uid="uid://ckh0j76tiwhi8" path="res://assets/joyous.png" id="2_uq1cd"]
+[ext_resource type="Script" uid="uid://cncnrvolgxjx3" path="res://scripts/mood_entry_screen.gd" id="2_xetm6"]
+[ext_resource type="Texture2D" uid="uid://c4jsc7pkja5n3" path="res://assets/happy.png" id="3_55te6"]
+[ext_resource type="Texture2D" uid="uid://pnx1rx5ylbc6" path="res://assets/neutral.png" id="4_xetm6"]
+[ext_resource type="Texture2D" uid="uid://dcoomm8g7bqus" path="res://assets/sad.png" id="5_0b55p"]
+[ext_resource type="Texture2D" uid="uid://co2pn2cvrf7dr" path="res://assets/awful.png" id="6_tu67t"]
+
+[node name="moodEntryScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dktp6")
+script = ExtResource("2_xetm6")
+
+[node name="bg" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"bgPanel"
+
+[node name="moodMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 64
+
+[node name="moodVbox" type="VBoxContainer" parent="moodMargin"]
+layout_mode = 2
+
+[node name="titleLabel" type="Label" parent="moodMargin/moodVbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 72
+text = "CHOOSE YOUR MOOD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="moodButtonHbox" type="HBoxContainer" parent="moodMargin/moodVbox"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="joyButton" type="TextureButton" parent="moodMargin/moodVbox/moodButtonHbox"]
+modulate = Color(0.6117647, 0.32156864, 0.30588236, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_uq1cd")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="happyButton" type="TextureButton" parent="moodMargin/moodVbox/moodButtonHbox"]
+modulate = Color(0.7254902, 0.47843137, 0.3764706, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_55te6")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="neutralButton" type="TextureButton" parent="moodMargin/moodVbox/moodButtonHbox"]
+modulate = Color(0.8, 0.65882355, 0.48235294, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_xetm6")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="sadButton" type="TextureButton" parent="moodMargin/moodVbox/moodButtonHbox"]
+modulate = Color(0.35686275, 0.49019608, 0.4509804, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_0b55p")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="awfulButton" type="TextureButton" parent="moodMargin/moodVbox/moodButtonHbox"]
+modulate = Color(0.30588236, 0.32941177, 0.3882353, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_tu67t")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="optionsMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="optionsButton" type="Button" parent="optionsMargin"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_type_variation = &"setupButton"
+theme_override_font_sizes/font_size = 24
+text = "OPTIONS"
+flat = true

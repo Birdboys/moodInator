@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1q8th3uxm4sa"]
+
+[ext_resource type="Theme" uid="uid://bjfqe17b7byng" path="res://assets/mood_theme.tres" id="1_qfaqa"]
+[ext_resource type="Script" uid="uid://ck0jl1lrj5quw" path="res://scripts/mood_inator.gd" id="2_xqhdf"]
+[ext_resource type="PackedScene" uid="uid://nppr4tab8x8f" path="res://scenes/mood_entry_screen.tscn" id="3_3tv68"]
+[ext_resource type="Script" uid="uid://b468f8nd8odfc" path="res://addons/NotificationSchedulerPlugin/NotificationScheduler.gd" id="4_fsoeq"]
+[ext_resource type="PackedScene" uid="uid://dirjs1typixhk" path="res://scenes/options_screen.tscn" id="4_xqhdf"]
+
+[node name="moodInator" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qfaqa")
+script = ExtResource("2_xqhdf")
+
+[node name="setupScreen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="setupBG" type="Panel" parent="setupScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"bgPanel"
+
+[node name="setupMargins" type="MarginContainer" parent="setupScreen/setupBG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+
+[node name="setupButtons" type="VBoxContainer" parent="setupScreen/setupBG/setupMargins"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="permButton" type="Button" parent="setupScreen/setupBG/setupMargins/setupButtons"]
+layout_mode = 2
+theme_type_variation = &"setupButton"
+text = "GIVE NOTIFICATION PERMISSIONS"
+
+[node name="batteryButton" type="Button" parent="setupScreen/setupBG/setupMargins/setupButtons"]
+layout_mode = 2
+theme_type_variation = &"setupButton"
+text = "GIVE BATTERY PERMISSIONS"
+
+[node name="moodEntryScreen" parent="." instance=ExtResource("3_3tv68")]
+visible = false
+layout_mode = 1
+
+[node name="optionsScreen" parent="." instance=ExtResource("4_xqhdf")]
+layout_mode = 1
+
+[node name="NotificationScheduler" type="Node" parent="."]
+script = ExtResource("4_fsoeq")
+metadata/_custom_type_script = "uid://b468f8nd8odfc"
+
+[node name="moodTimer" type="Timer" parent="."]
+one_shot = true

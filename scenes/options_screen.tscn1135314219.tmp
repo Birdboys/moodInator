@@ -1,0 +1,114 @@
+[gd_scene load_steps=3 format=3 uid="uid://dirjs1typixhk"]
+
+[ext_resource type="Theme" uid="uid://bjfqe17b7byng" path="res://assets/mood_theme.tres" id="1_ffprp"]
+[ext_resource type="Script" uid="uid://dkyjck4u6rt3m" path="res://scripts/options_screen.gd" id="2_8c6mt"]
+
+[node name="optionsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ffprp")
+script = ExtResource("2_8c6mt")
+
+[node name="bg" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"bgPanel"
+
+[node name="backMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="backButton" type="Button" parent="backMargin"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_type_variation = &"setupButton"
+theme_override_font_sizes/font_size = 18
+text = "BACK"
+flat = true
+
+[node name="optionsMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 64
+
+[node name="optionsVbox" type="VBoxContainer" parent="optionsMargin"]
+layout_mode = 2
+alignment = 1
+
+[node name="minMarign" type="MarginContainer" parent="optionsMargin/optionsVbox"]
+layout_mode = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_right = 128
+
+[node name="minVbox" type="VBoxContainer" parent="optionsMargin/optionsVbox/minMarign"]
+layout_mode = 2
+
+[node name="minLabel" type="Label" parent="optionsMargin/optionsVbox/minMarign/minVbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 48
+text = "MIN COOLDOWN"
+horizontal_alignment = 1
+
+[node name="minEntry" type="HSlider" parent="optionsMargin/optionsVbox/minMarign/minVbox"]
+layout_mode = 2
+size_flags_vertical = 6
+min_value = 1.0
+max_value = 24.0
+value = 2.0
+
+[node name="maxLabel" type="Label" parent="optionsMargin/optionsVbox/minMarign/minVbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 48
+text = "MIN COOLDOWN"
+horizontal_alignment = 1
+
+[node name="maxEntry" type="HSlider" parent="optionsMargin/optionsVbox/minMarign/minVbox"]
+layout_mode = 2
+size_flags_vertical = 6
+min_value = 1.0
+max_value = 24.0
+value = 8.0
+tick_count = 24
+
+[node name="exportButton" type="Button" parent="optionsMargin/optionsVbox"]
+layout_mode = 2
+theme_type_variation = &"setupButton"
+text = "EXPORT MOOD DATA"
+flat = true
+
+[node name="pauseCheckbox" type="CheckBox" parent="optionsMargin/optionsVbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.6627451, 0.6117647, 0.5529412, 1)
+theme_override_colors/font_focus_color = Color(0.6627451, 0.6117647, 0.5529412, 1)
+theme_override_colors/font_pressed_color = Color(0.6627451, 0.6117647, 0.5529412, 1)
+theme_override_colors/font_hover_color = Color(0.6627451, 0.6117647, 0.5529412, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.6627451, 0.6117647, 0.5529412, 1)
+theme_override_font_sizes/font_size = 48
+text = "PAUSED"
+alignment = 1
+icon_alignment = 1
