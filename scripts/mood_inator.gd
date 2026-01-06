@@ -127,6 +127,7 @@ func sendMessage(title, text, delay:=0):
 			.set_delay(delay)
 
 	notification_data.set_large_icon_name(NotificationScheduler.DEFAULT_ICON_NAME)
+	notification_data.set_small_icon_name(NotificationScheduler.DEFAULT_ICON_NAME)
 	#__notification_data.set_custom_data(CustomData.new().set_int_property("my_test_int", 14)
 		#.set_string_property("my_test_string", "just testing"))
 
