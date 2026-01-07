@@ -97,7 +97,8 @@ func notifPermGranted(_permission_name: String) -> void:
 	createChannel()
 	permButton.disabled = true
 	if checkPermsGranted():
-			allPermsGranted()
+		sendMessage("SUCCESS", "Successfully granted notification permissions")
+		allPermsGranted()
 
 func batteryPermDenied(_permission_name: String) -> void:
 	#outputText("BATTERY PERMISSIONS DENIED")
@@ -140,4 +141,3 @@ func checkPermsGranted():
 
 func allPermsGranted():
 	toggleSetup(false)
-	sendMessage("SUCCESS", "Successfully granted notification permissions")
