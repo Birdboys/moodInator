@@ -52,8 +52,9 @@ func toggleOptions(on:=true):
 	else:
 		checkReady()
 	
-func moodPressed(mood):
-	DataHandler.updateMoodData(mood, DataHandler.getCurrentTime())
+func moodPressed(mood, text):
+	print("MOOD TEXT", text)
+	DataHandler.updateMoodData(mood, DataHandler.getCurrentTime(), text)
 	var mood_delay_time := randi_range(DataHandler.time_data['min_cooldown'], DataHandler.time_data['max_cooldown']) * 3600
 	scheduleMoodActivation(mood_delay_time)
 

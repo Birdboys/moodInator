@@ -7,7 +7,8 @@ extends Control
 @onready var sadButton := $moodMargin/moodVbox/moodButtonHbox/sadButton
 @onready var awfulButton := $moodMargin/moodVbox/moodButtonHbox/awfulButton
 @onready var optionsButton := $optionsMargin/optionsButton
-signal mood_pressed(mood)
+@onready var textEntry := $moodMargin/moodVbox/lineMargin/textEntry
+signal mood_pressed(mood, text)
 signal toggle_options
 
 func _ready() -> void:
@@ -32,7 +33,8 @@ func toggleButtonsOn(on:=true):
 	awfulButton.modulate = Color("4e5463") if on else Color("a99c8d")
 	
 	titleLabel.text = "CHOOSE YOUR MOOD" if on else "MOODS ON COOLDOWN"
+	textEntry.clear()
 
 func moodPressed(mood):
+	emit_signal("mood_pressed", mood, textEntry.text)
 	toggleButtonsOn(false)
-	emit_signal("mood_pressed", mood)

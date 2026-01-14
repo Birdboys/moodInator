@@ -63,12 +63,12 @@ func updatePaused(paused):
 	
 func createNewMoodData():
 	var new_mood_file = FileAccess.open(mood_data_path, FileAccess.WRITE)
-	var mood_data_header = ["mood","date_time"]
+	var mood_data_header = ["mood","date_time","text"]
 	new_mood_file.store_csv_line(mood_data_header)
 	new_mood_file.close()
 	
-func updateMoodData(mood, time):
-	var new_mood_data = [mood, time]
+func updateMoodData(mood, time, text):
+	var new_mood_data = [mood, time, text]
 	var mood_file = FileAccess.open(mood_data_path, FileAccess.READ_WRITE)
 	mood_file.seek_end()
 	mood_file.store_csv_line(new_mood_data)
@@ -86,3 +86,22 @@ func exportMoodData():
 	#var new_mood_download_file = FileAccess.open(downloads_dir, FileAccess.WRITE)
 	#new_mood_download_file.store_csv(mood_data_header)
 	#new_mood_download_file.close()
+
+func cleanData():
+	if not FileAccess.file_exists(mood_data_path): return
+	var mood_file = FileAccess.open(mood_data_path, FileAccess.READ)
+	var mood_file_text = mood_file.get_as_text()
+	var mood_file_lines = mood_file_text.split("\n")
+	mood_file_lines = mood_file_lines.slice(1)
+	mood_file.close()
+	
+	var new_mood_file = FileAccess.open(mood_data_path, FileAccess.WRITE)
+	var mood_data_header = ["mood","date_time","text"]
+	new_mood_file.store_csv_line(mood_data_header)
+	for line in mood_file_lines:
+		line = line.split(",")
+		print(line)
+		if len(line) == 2: line.append("")
+		if len(line) == 0: continue
+		new_mood_file.store_csv_line(line)
+	new_mood_file.close()

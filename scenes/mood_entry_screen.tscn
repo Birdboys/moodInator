@@ -41,6 +41,7 @@ theme_override_constants/margin_bottom = 64
 
 [node name="moodVbox" type="VBoxContainer" parent="moodMargin"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="titleLabel" type="Label" parent="moodMargin/moodVbox"]
 layout_mode = 2
@@ -94,6 +95,15 @@ size_flags_horizontal = 3
 texture_normal = ExtResource("6_tu67t")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="lineMargin" type="MarginContainer" parent="moodMargin/moodVbox"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_right = 64
+
+[node name="textEntry" type="LineEdit" parent="moodMargin/moodVbox/lineMargin"]
+layout_mode = 2
+placeholder_text = "Enter current happenings..."
 
 [node name="optionsMargin" type="MarginContainer" parent="."]
 layout_mode = 1

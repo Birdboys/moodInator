@@ -134,9 +134,22 @@ text = "PAUSED"
 alignment = 1
 icon_alignment = 1
 
-[node name="exportButton" type="Button" parent="optionsMargin/optionsVbox"]
+[node name="buttonHbox" type="HBoxContainer" parent="optionsMargin/optionsVbox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="cleanButton" type="Button" parent="optionsMargin/optionsVbox/buttonHbox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"setupButton"
-text = "EXPORT MOOD DATA"
+text = "CLEAN DATA"
+flat = true
+
+[node name="exportButton" type="Button" parent="optionsMargin/optionsVbox/buttonHbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"setupButton"
+text = "EXPORT DATA"
 flat = true

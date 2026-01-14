@@ -1,7 +1,8 @@
 extends Control
 
 @onready var backButton := $backMargin/backButton
-@onready var exportButton := $optionsMargin/optionsVbox/exportButton
+@onready var exportButton := $optionsMargin/optionsVbox/buttonHbox/exportButton
+@onready var cleanButton := $optionsMargin/optionsVbox/buttonHbox/cleanButton
 
 @onready var pauseButton := $optionsMargin/optionsVbox/pauseCheckbox
 @onready var minEntry := $optionsMargin/optionsVbox/minMarign/minVbox/minHbox/minEntry
@@ -14,6 +15,7 @@ signal toggle_options
 func _ready() -> void:
 	backButton.pressed.connect(emit_signal.bind("toggle_options"))
 	exportButton.pressed.connect(DataHandler.exportMoodData)
+	cleanButton.pressed.connect(DataHandler.cleanData)
 	pauseButton.toggled.connect(pauseUpdated)
 	minEntry.value_changed.connect(minUpdated)
 	maxEntry.value_changed.connect(maxUpdated)
