@@ -36,5 +36,8 @@ func toggleButtonsOn(on:=true):
 	textEntry.clear()
 
 func moodPressed(mood):
-	emit_signal("mood_pressed", mood, textEntry.text)
-	toggleButtonsOn(false)
+	SubmitScreen.loadMenu(mood)
+	var submit = await SubmitScreen.choice_made
+	if submit:
+		emit_signal("mood_pressed", mood, textEntry.text)
+		toggleButtonsOn(false)

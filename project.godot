@@ -22,6 +22,7 @@ config/icon="uid://dsnelmeks53xc"
 [autoload]
 
 DataHandler="*res://scripts/data_handler.gd"
+SubmitScreen="*res://scenes/submit_screen.tscn"
 
 [display]
 
